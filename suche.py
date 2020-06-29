@@ -3,13 +3,13 @@ import urllib.request
 from sendmail import sendmail
 
 
-seite = 'https://www.willhaben.at/iad/kaufen-und-verkaufen/marktplatz/e-gitarren-verstaerker/e-gitarren-7209?keyword=stratocaster&attribute_tree_level_0=6462&attribute_tree_level_1=6540'
+seite = 'https://www.willhaben.at/iad/kaufen-und-verkaufen/marktplatz?keyword=test&attribute_tree_level_0=&attribute_tree_level_1=&typedKeyword=test'
 response = urllib.request.urlopen(seite)
 html = response.read()
 
 
 soup = BeautifulSoup(html, "lxml")
-anzeigen = soup.find_all("a", {"itemprop": "url"})
+anzeigen = soup.find_all('a', itemprop='url')
 
 
 webliste = []
